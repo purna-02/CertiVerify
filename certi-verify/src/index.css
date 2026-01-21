@@ -6,9 +6,36 @@
 
 @layer base {
     body {
-        @apply antialiased font-sans text-slate-800 bg-slate-50;
+        @apply antialiased font-sans text-slate-800 bg-mist-50 dark:bg-space-950 dark:text-white transition-colors duration-500;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-slate-300 dark:bg-space-800 rounded-full hover:bg-slate-400 dark:hover:bg-space-700;
+    }
+}
+
+@layer utilities {
+    .glass-panel {
+        @apply bg-white/70 dark:bg-space-900/60 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-xl;
+    }
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-indigo-600 dark:from-primary-400 dark:to-indigo-400;
+    }
+
+    .text-gradient-hero {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-primary-800 to-slate-900 dark:from-white dark:via-primary-200 dark:to-white;
     }
 }
